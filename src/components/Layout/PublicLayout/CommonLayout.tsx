@@ -1,3 +1,6 @@
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+
 interface IProps{
   children: React.ReactNode
 }
@@ -5,7 +8,9 @@ interface IProps{
 const CommonLayout = ({children}:IProps) => {
   return (
     <div>
+      <Navbar/>
       {children}
+      <Footer/>
     </div>
   );
 };
