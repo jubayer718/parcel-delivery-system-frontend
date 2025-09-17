@@ -1,14 +1,14 @@
 import Container from "@/components/ui/Container";
 
 
-const Contact = () => {
+const Home = () => {
   return (
     <Container>
        <div>
-      <h1>This is contact page</h1>
+      This is Home page
     </div>
    </Container>
   );
 };
 
-export default Contact;
+export default Home;

@@ -1,9 +1,12 @@
+import Container from "@/components/ui/Container";
 
 const Navbar = () => {
   return (
-    <div>
+    <Container>
+       <div>
       <h1>Navbar</h1>
     </div>
+   </Container>
   );
 };
 
