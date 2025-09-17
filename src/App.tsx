@@ -4,7 +4,6 @@ import CommonLayout from './components/Layout/PublicLayout/CommonLayout'
 
 
 function App() {
-  
 
   return (
 
