@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
     Component: AdminLayout,
     children: [
       {
-        path: 'all-users',
+        path: '/admin/all-users',
         Component:AllUser
       }
     ]
