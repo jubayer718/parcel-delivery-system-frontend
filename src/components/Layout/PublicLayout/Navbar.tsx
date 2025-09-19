@@ -114,7 +114,7 @@ const Navbar = () => {
             <Link to={'/login'}>Sign In</Link>
           </Button>
           <Button asChild size="sm" className="text-sm">
-            <Link to={'/admin/all-users'}>Get Started</Link>
+            <Link to={'/admin/dashboard'}>Get Started</Link>
           </Button>
         </div>
       </div>
