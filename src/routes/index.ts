@@ -7,7 +7,7 @@ import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
-import { withAuth } from "@/utils/withAuth";
+import SenderLayout from "@/components/Layout/SenderLayout/SenderLayout";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       }, 
       {
         path: "about",
-        Component:withAuth(About)  ,
+        Component:About  ,
       }, {
         path: "contact",
         Component:Contact
@@ -33,7 +33,21 @@ export const router = createBrowserRouter([
         Component:Register
       }
     ]
-  }, {
+  },
+   {
+        Component: SenderLayout,
+        path: "/sender",
+        children: [
+            {
+                path: "create-parcel",
+                Component: CreateParcel,
+            },
+            {
+                path: "dashboard",
+                Component: SenderDashboardHome,
+            },
+        ],
+    }, {
     path: "/admin",
     Component: AdminLayout,
     children: [
