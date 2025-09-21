@@ -14,6 +14,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { authApi, useLogoutMutation, useUserInfoQuery } from "@/Redux/features/auth/auth.api";
+import { useAppDispatch } from "@/Redux/hooks";
+
 
 
 // Navigation links array to be used in both desktop and mobile menus
@@ -24,7 +27,17 @@ const navigationLinks = [
 ]
 
 const Navbar = () => {
+  const { data } = useUserInfoQuery(undefined);
+  const dispatch = useAppDispatch()
+  const user = data?.data?.email; 
+  console.log(user)
+  const [logout] = useLogoutMutation();
 
+  const handleLogOut = async() => {
+    await logout(undefined)
+    dispatch(authApi.util.resetApiState())
+  }
+  
   
   return (
    
@@ -110,9 +123,14 @@ const Navbar = () => {
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="text-sm">
+          {user &&  <Button onClick={handleLogOut} variant="outline" size="sm" className="text-sm cursor-pointer">
+            Logout
+           </Button>}
+            {
+              !user && <Button asChild variant="ghost" size="sm" className="text-sm">
             <Link to={'/login'}>Sign In</Link>
           </Button>
+          }
           <Button asChild size="sm" className="text-sm">
             <Link to={'/admin/dashboard'}>Get Started</Link>
           </Button>
