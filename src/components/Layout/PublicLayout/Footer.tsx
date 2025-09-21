@@ -3,8 +3,9 @@ import Container from '@/components/ui/Container';
 
 const Footer = () => {
   return (
-    <Container>
-   <footer className="bg-white">
+    <section className='bg-gradient-to-b from-orange-300  to-orange-400  dark:bg-gray-900'>
+    <Container className=''>
+   <footer className="">
   <div className="mx-auto max-w-screen-xl space-y-8  py-16  lg:space-y-16 ">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
@@ -206,6 +207,8 @@ const Footer = () => {
 </footer>
 
     </Container>
+
+    </section>
   );
 };
 

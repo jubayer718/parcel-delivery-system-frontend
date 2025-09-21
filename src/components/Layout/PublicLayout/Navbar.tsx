@@ -14,7 +14,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { useLogoutMutation, useUserInfoQuery } from "@/Redux/features/auth/auth.api";
+import { authApi, useLogoutMutation, useUserInfoQuery } from "@/Redux/features/auth/auth.api";
+import { useAppDispatch } from "@/Redux/hooks";
 
 
 
@@ -27,12 +28,14 @@ const navigationLinks = [
 
 const Navbar = () => {
   const { data } = useUserInfoQuery(undefined);
+  const dispatch = useAppDispatch()
   const user = data?.data?.email; 
   console.log(user)
   const [logout] = useLogoutMutation();
 
-  const handleLogOut = () => {
-    logout(undefined)
+  const handleLogOut = async() => {
+    await logout(undefined)
+    dispatch(authApi.util.resetApiState())
   }
   
   
@@ -120,11 +123,11 @@ const Navbar = () => {
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">
-          {data?.data?.email &&  <Button onClick={handleLogOut} variant="outline" size="sm" className="text-sm cursor-pointer">
+          {user &&  <Button onClick={handleLogOut} variant="outline" size="sm" className="text-sm cursor-pointer">
             Logout
            </Button>}
             {
-              !data?.data?.email && <Button asChild variant="ghost" size="sm" className="text-sm">
+              !user && <Button asChild variant="ghost" size="sm" className="text-sm">
             <Link to={'/login'}>Sign In</Link>
           </Button>
           }
