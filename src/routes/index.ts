@@ -1,7 +1,6 @@
 import App from "@/App";
-import AdminDashboard from "@/components/Layout/AdminLayout/AdminDashboard";
 import AdminLayout from "@/components/Layout/AdminLayout/AdminLayout";
-import AllUser from "@/components/Layout/AdminLayout/AllUser";
+// import AllUser from "@/components/Layout/AdminLayout/AllUser";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
@@ -11,6 +10,12 @@ import SenderLayout from "@/components/Layout/SenderLayout/SenderLayout";
 import { createBrowserRouter } from "react-router";
 import CreateParcel from "@/pages/sender/CreateParcel";
 import ReceiverLayout from "@/components/Layout/ReceiverLayout/ReceiverLayout";
+import SenderDashboardHome from "@/pages/sender/SenderDashboardHome";
+import DeliveryHistoryPage from "@/pages/Receiver/DeliveryHistoryPage";
+import ReceiverParcelPage from "@/pages/Receiver/ReceiverParcelPage";
+import UsersPage from "@/pages/admin/UserPage";
+import ParcelPage from "@/pages/admin/ParcelPage";
+
 
 export const router = createBrowserRouter([
   {
@@ -44,10 +49,10 @@ export const router = createBrowserRouter([
                 path: "create-parcel",
                 Component: CreateParcel,
             },
-            // {
-            //     path: "dashboard",
-            //     Component: SenderDashboardHome,
-            // },
+            {
+                path: "dashboard",
+                Component: SenderDashboardHome,
+            },
         ],
     }, 
    {
@@ -55,25 +60,25 @@ export const router = createBrowserRouter([
         path: "/receiver",
         children: [
             {
-                path: "create-parcel",
-                Component: CreateParcel,
+                path: "parcels",
+                Component: ReceiverParcelPage,
             },
-            // {
-            //     path: "dashboard",
-            //     Component: SenderDashboardHome,
-            // },
+             {
+                path: "parcel/history",
+                Component: DeliveryHistoryPage,
+            },
         ],
     }, {
     path: "/admin",
     Component: AdminLayout,
     children: [
-      {
-        path: "/admin/dashboard",
-        Component:AdminDashboard
-      },{
-        path: '/admin/all-users',
-        Component:AllUser
-      }
+        {
+                path: "users",
+                Component: UsersPage,
+            },  {
+                path: "parcels",
+                Component: ParcelPage,
+            },
     ]
   }
 ])

@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router";
+import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import Logo from "@/assets/icons/Logo.png"
 // import { ModeToggle } from "./mode.toggle";
 import  { useLogoutMutation } from "@/Redux/features/auth/auth.api";
@@ -32,12 +32,12 @@ export default function DashboardLayout() {
                 <nav className="flex-1 mt-4">
                     <ul className="space-y-2">
                         <li>
-                            <Link
+                            <NavLink
                                 to="/sender/dashboard"
                                 className="block px-4 py-2 rounded hover:bg-accent hover:text-accent-foreground"
                             >
                                 Dashboard
-                            </Link>
+                            </NavLink>
                         </li>
                         <li>
                             <Link

@@ -26,6 +26,7 @@ export function LoginForm({
     return <p>Loading...</p>
   }
   const role = data?.data?.role;
+  console.log(role)
   
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {

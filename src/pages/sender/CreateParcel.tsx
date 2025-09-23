@@ -32,6 +32,7 @@ const CreateParcel = () => {
             originalAddress: "",
             destinationAddress: "",
         },
+        mode:"onChange",
     });
 
     const [createParcel, { isLoading }] = useCreateParcelMutation();
@@ -41,6 +42,7 @@ const CreateParcel = () => {
             ...values,
             price: Number(values.price),
         };
+        console.log(parsedValues);
         try {
             const parcel = await createParcel(parsedValues).unwrap();
             if (parcel.success) {
