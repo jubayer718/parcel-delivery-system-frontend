@@ -11,6 +11,10 @@ import SenderLayout from "@/components/Layout/SenderLayout/SenderLayout";
 import { createBrowserRouter } from "react-router";
 import CreateParcel from "@/pages/sender/CreateParcel";
 import ReceiverLayout from "@/components/Layout/ReceiverLayout/ReceiverLayout";
+import SenderDashboardHome from "@/pages/sender/SenderDashboardHome";
+import DeliveryHistoryPage from "@/pages/Receiver/DeliveryHistoryPage";
+import ReceiverParcelPage from "@/pages/Receiver/ReceiverParcelPage";
+
 
 export const router = createBrowserRouter([
   {
@@ -44,10 +48,10 @@ export const router = createBrowserRouter([
                 path: "create-parcel",
                 Component: CreateParcel,
             },
-            // {
-            //     path: "dashboard",
-            //     Component: SenderDashboardHome,
-            // },
+            {
+                path: "dashboard",
+                Component: SenderDashboardHome,
+            },
         ],
     }, 
    {
@@ -55,13 +59,13 @@ export const router = createBrowserRouter([
         path: "/receiver",
         children: [
             {
-                path: "create-parcel",
-                Component: CreateParcel,
+                path: "parcels",
+                Component: ReceiverParcelPage,
             },
-            // {
-            //     path: "dashboard",
-            //     Component: SenderDashboardHome,
-            // },
+             {
+                path: "parcel/history",
+                Component: DeliveryHistoryPage,
+            },
         ],
     }, {
     path: "/admin",

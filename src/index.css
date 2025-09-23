@@ -123,6 +123,7 @@
 
 .active{
   border-bottom: white solid 3px;
+  background-color: rgba(241, 162, 16, 0.5);
   
   
 }
