@@ -8,7 +8,7 @@ import UserList from "./UserList";
 
 const UsersPage = () => {
   const { data, isLoading } = useGetAllUserQuery(undefined);
-
+  
   const [blockUser] = useToggleBlockUserMutation();
   const [unblockUser] = useToggleUnBlockUserMutation();
 

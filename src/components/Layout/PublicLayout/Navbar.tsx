@@ -135,7 +135,7 @@ const Navbar = () => {
           }
             {
                role === "ADMIN" && <Button asChild size="sm" className="text-sm">
-            <Link to={'/admin/dashboard'}>Get Started</Link>
+            <Link to={'/admin'}>Get Started</Link>
           </Button>
             }
             {
