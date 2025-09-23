@@ -8,6 +8,16 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
+// select
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
@@ -27,6 +37,7 @@ const registerSchema = z
       })
       .max(50),
     email: z.email(),
+    role: z.string(),
     password: z.string().min(8, { error: "Password is too short" }),
     confirmPassword: z
       .string()
@@ -49,6 +60,7 @@ export function RegisterForm({
     defaultValues: {
       name: "",
       email: "",
+      role: "",
       password: "",
       confirmPassword: "",
     },
@@ -58,6 +70,7 @@ export function RegisterForm({
     const userInfo = {
       name: data.name,
       email: data.email,
+      role: data.role,
       password: data.password,
     };
 
@@ -118,6 +131,15 @@ export function RegisterForm({
                 </FormItem>
               )}
             />
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue   placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="SENDER">Sender</SelectItem>
+                <SelectItem value="RECEIVER">Receiver</SelectItem>
+              </SelectContent>
+            </Select>
             <FormField
               control={form.control}
               name="password"

@@ -30,8 +30,10 @@ const Navbar = () => {
   const { data } = useUserInfoQuery(undefined);
   const dispatch = useAppDispatch()
   const user = data?.data?.email; 
-  console.log(user)
+  const role = data?.data?.role;
+  console.log(role)
   const [logout] = useLogoutMutation();
+
 
   const handleLogOut = async() => {
     await logout(undefined)
@@ -131,9 +133,21 @@ const Navbar = () => {
             <Link to={'/login'}>Sign In</Link>
           </Button>
           }
-          <Button asChild size="sm" className="text-sm">
+            {
+               role === "ADMIN" && <Button asChild size="sm" className="text-sm">
             <Link to={'/admin/dashboard'}>Get Started</Link>
           </Button>
+            }
+            {
+              role === "RECEIVER" && <Button asChild size="sm" className="text-sm">
+            <Link to={'/receiver'}>Get Started</Link>
+          </Button>
+            }
+            {
+              role === "SENDER" && <Button asChild size="sm" className="text-sm">
+            <Link to={'/sender'}>Get Started</Link>
+          </Button>
+            }
         </div>
       </div>
    </Container>

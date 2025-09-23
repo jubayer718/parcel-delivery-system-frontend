@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { useLoginMutation } from "@/Redux/features/auth/auth.api";
+import { useLoginMutation, useUserInfoQuery } from "@/Redux/features/auth/auth.api";
 import { type FieldValues, type SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
@@ -21,11 +21,20 @@ export function LoginForm({
   const navigate = useNavigate();
   const form = useForm();
   const [login] = useLoginMutation();
+  const { data, isLoading } = useUserInfoQuery(undefined);
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+  const role = data?.data?.role;
+  
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const res = await login(data).unwrap();
-      console.log(res);
-      navigate("/")
+      if(role === "SENDER"){navigate('/sender')}
+      if(role === "RECEIVER"){navigate('/receiver')}
+      if(role === "ADMIN"){navigate('/admin')}
+      // navigate("/")
       
     } catch (err) {
       console.error(err);
