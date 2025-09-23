@@ -5,7 +5,7 @@ import {
     useDispatchParcelMutation,
     useInTransitParcelMutation,
     useOutForDeliveryParcelMutation,
-} from "@/Redux/features/parcel/parcel.api";
+} from "@/Redux/features/parcel/parcel.Api";
 import ParcelList from "./ParcelList";
 import { toast } from "sonner";
 

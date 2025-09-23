@@ -69,6 +69,16 @@ export default function AdminLayout() {
                             >
                                 Settings
                             </NavLink>
+              </li>
+              
+              <hr />
+                        <li>
+                            <NavLink
+                                to="/"
+                                className="block px-4 py-2 rounded hover:bg-accent hover:text-accent-foreground"
+                            >
+                                Home
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>
