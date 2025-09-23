@@ -1,7 +1,6 @@
 import App from "@/App";
-import AdminDashboard from "@/components/Layout/AdminLayout/AdminDashboard";
 import AdminLayout from "@/components/Layout/AdminLayout/AdminLayout";
-import AllUser from "@/components/Layout/AdminLayout/AllUser";
+// import AllUser from "@/components/Layout/AdminLayout/AllUser";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
@@ -14,6 +13,8 @@ import ReceiverLayout from "@/components/Layout/ReceiverLayout/ReceiverLayout";
 import SenderDashboardHome from "@/pages/sender/SenderDashboardHome";
 import DeliveryHistoryPage from "@/pages/Receiver/DeliveryHistoryPage";
 import ReceiverParcelPage from "@/pages/Receiver/ReceiverParcelPage";
+import UsersPage from "@/pages/admin/UserPage";
+import ParcelPage from "@/pages/admin/ParcelPage";
 
 
 export const router = createBrowserRouter([
@@ -71,13 +72,13 @@ export const router = createBrowserRouter([
     path: "/admin",
     Component: AdminLayout,
     children: [
-      {
-        path: "/admin/dashboard",
-        Component:AdminDashboard
-      },{
-        path: '/admin/all-users',
-        Component:AllUser
-      }
+        {
+                path: "users",
+                Component: UsersPage,
+            },  {
+                path: "parcels",
+                Component: ParcelPage,
+            },
     ]
   }
 ])
