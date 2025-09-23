@@ -9,6 +9,8 @@ import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import SenderLayout from "@/components/Layout/SenderLayout/SenderLayout";
 import { createBrowserRouter } from "react-router";
+import CreateParcel from "@/pages/sender/CreateParcel";
+import ReceiverLayout from "@/components/Layout/ReceiverLayout/ReceiverLayout";
 
 export const router = createBrowserRouter([
   {
@@ -42,10 +44,24 @@ export const router = createBrowserRouter([
                 path: "create-parcel",
                 Component: CreateParcel,
             },
+            // {
+            //     path: "dashboard",
+            //     Component: SenderDashboardHome,
+            // },
+        ],
+    }, 
+   {
+        Component: ReceiverLayout,
+        path: "/receiver",
+        children: [
             {
-                path: "dashboard",
-                Component: SenderDashboardHome,
+                path: "create-parcel",
+                Component: CreateParcel,
             },
+            // {
+            //     path: "dashboard",
+            //     Component: SenderDashboardHome,
+            // },
         ],
     }, {
     path: "/admin",

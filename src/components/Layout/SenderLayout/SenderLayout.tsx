@@ -1,5 +1,5 @@
 import { Link, Outlet, useNavigate } from "react-router";
-import MainLogo from "../../MainLogo/MainLogo";
+import Logo from "@/assets/icons/Logo.png"
 // import { ModeToggle } from "./mode.toggle";
 import  { useLogoutMutation } from "@/Redux/features/auth/auth.api";
 import { useDispatch } from "react-redux";
@@ -26,7 +26,7 @@ export default function DashboardLayout() {
             {/* Sidebar */}
             <aside className="w-64 bg-card border-r shadow-sm flex flex-col">
                 <div className="p-6 flex items-center gap-2 border-b">
-                    <MainLogo></MainLogo>
+                     <img className="w-12 h-12" src={Logo} alt="" />
                 </div>
 
                 <nav className="flex-1 mt-4">
@@ -70,7 +70,11 @@ export default function DashboardLayout() {
                             >
                                 Settings
                             </Link>
-                        </li>
+              </li>
+              <hr />
+              <li ><Link
+                 className="block px-4 py-2 rounded hover:bg-accent hover:text-accent-foreground"
+                to={"/"}>Home</Link></li>
                     </ul>
                 </nav>
 
